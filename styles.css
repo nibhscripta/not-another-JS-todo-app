@@ -1,0 +1,61 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+main {
+  width: 100vw;
+  height: 100vh;
+}
+.todo-item {
+  padding: 10px;
+  border-bottom: 1px solid #999;
+  max-width: 400px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr min-content;
+  align-items: center;
+}
+.todo-item button {
+  height: min-content;
+  cursor: pointer;
+  padding: 2px 2px 2px 1px;
+  display: grid;
+  place-items: center;
+}
+.line-through {
+  text-decoration: line-through;
+}
+.todo-text {
+  cursor: pointer;
+}
+.todo-text:hover {
+  text-decoration: line-through;
+}
+.todos form {
+  max-width: 400px;
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  padding: 10px;
+  gap: 10px;
+  align-items: center;
+  border-bottom: 3px solid #111;
+  margin-bottom: 10px;
+}
+.todos form input {
+  padding: 5px;
+  font-size: 20px;
+}
+.todos form button {
+  padding: 5px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.icon {
+  width: 20px;
+  height: auto;
+}
