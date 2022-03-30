@@ -15,8 +15,9 @@ main {
   border-bottom: 1px solid #999;
   max-width: 400px;
   display: grid;
+  justify-content: space-between;
   gap: 10px;
-  grid-template-columns: 1fr min-content;
+  grid-template-columns: minmax(100px, max-content) min-content;
   align-items: center;
 }
 .todo-item button {
@@ -31,6 +32,7 @@ main {
 }
 .todo-text {
   cursor: pointer;
+  word-wrap: break-word;
 }
 .todo-text:hover {
   text-decoration: line-through;
