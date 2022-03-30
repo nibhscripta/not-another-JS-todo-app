@@ -22,7 +22,7 @@ function addTodo(todoInput, isLineThrough) {
         <div id="todo-item" class="todo-item">
           ${todoItem.outerHTML}
           <button id="todo-item-remove" onclick="removeTodo(this)">
-            <img src="./icons/trash.png" alt="remove" class="icon" />
+            <img src="./icons/trash.svg" alt="remove" class="icon" />
           </button>
         </div>
       `

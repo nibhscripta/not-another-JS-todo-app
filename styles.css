@@ -23,7 +23,7 @@ main {
 .todo-item button {
   height: min-content;
   cursor: pointer;
-  padding: 2px 2px 2px 1px;
+  padding: 2px;
   display: grid;
   place-items: center;
 }
