@@ -1,14 +1,19 @@
 let existingTodos = JSON.parse(localStorage.getItem("todos"));
 let todoData = existingTodos || [];
 todoData.forEach((todo) => {
-  addTodo(todo);
+  let isLineThrough = todo["line-through"];
+  let entry = todo["entry-text"];
+  addTodo(entry, isLineThrough);
 });
-function addTodo(todoInput) {
+function addTodo(todoInput, isLineThrough) {
   let todoItem = "";
   todoItem = document.createElement("p");
   todoItem.setAttribute("class", "todo-text");
   todoItem.setAttribute("id", "todo-text");
   todoItem.setAttribute("onclick", "lineThrough(this)");
+  if (isLineThrough === "True") {
+    todoItem.classList.add("line-through");
+  }
   let todoText = document.createTextNode(todoInput);
   todoItem.appendChild(todoText);
   document.getElementById("todos-list").insertAdjacentHTML(
@@ -40,11 +45,20 @@ function lineThrough(p) {
   } else {
     p.classList.add("line-through");
   }
+  saveTodos();
 }
 function saveTodos() {
   todoData = [];
+  let todoEntry;
   document.querySelectorAll("#todo-text").forEach((p) => {
-    todoData.push(p.innerText);
+    todoEntry = {};
+    if (p.classList.contains("line-through")) {
+      todoEntry["line-through"] = "True";
+    } else {
+      todoEntry["line-through"] = "False";
+    }
+    todoEntry["entry-text"] = p.innerText;
+    todoData.push(todoEntry);
   });
   localStorage.setItem("todos", JSON.stringify(todoData));
 }
