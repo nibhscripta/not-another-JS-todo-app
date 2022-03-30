@@ -15,7 +15,7 @@ function addTodo(todoInput) {
   let todoText = document.createTextNode(todoInput);
   todoItem.appendChild(todoText);
   document.getElementById("todos-list").insertAdjacentHTML(
-    "afterbegin",
+    "beforeend",
     `
         <div id="todo-item" class="todo-item">
           ${todoItem.outerHTML}
