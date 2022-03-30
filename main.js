@@ -1,5 +1,3 @@
-//code should go here but it hasn't shown up
-//aba kadabra alakzam, code appear
 let existingTodos = JSON.parse(localStorage.getItem("todos"));
 let todoData = existingTodos || [];
 todoData.forEach((todo) => {
@@ -7,7 +5,6 @@ todoData.forEach((todo) => {
 });
 function addTodo(todoInput) {
   let todoItem = "";
-  todoData.push(todoInput);
   todoItem = document.createElement("p");
   todoItem.setAttribute("class", "todo-text");
   todoItem.setAttribute("id", "todo-text");
