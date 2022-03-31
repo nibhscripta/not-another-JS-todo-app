@@ -1,5 +1,19 @@
 // toggle dark mode on and off
 const body = document.body;
+let todosDarkTheme = localStorage.getItem("todosDarkTheme");
+if (todosDarkTheme == "True") {
+  let bodyClass = body.classList;
+  bodyClass.add("dark-theme");
+  bodyClass.remove("light-theme");
+  document.getElementById("sun").classList.remove("display-none");
+  document.getElementById("moon").classList.add("display-none");
+} else {
+  let bodyClass = body.classList;
+  bodyClass.add("light-theme");
+  bodyClass.remove("dark-theme");
+  document.getElementById("moon").classList.remove("display-none");
+  document.getElementById("sun").classList.add("display-none");
+}
 document.getElementById("toggle-color-theme").onclick = () => {
   let bodyClass = body.classList;
   if (bodyClass.contains("light-theme")) {
@@ -7,11 +21,13 @@ document.getElementById("toggle-color-theme").onclick = () => {
     bodyClass.remove("light-theme");
     document.getElementById("sun").classList.remove("display-none");
     document.getElementById("moon").classList.add("display-none");
+    localStorage.setItem("todosDarkTheme", "True");
   } else {
     bodyClass.add("light-theme");
     bodyClass.remove("dark-theme");
     document.getElementById("moon").classList.remove("display-none");
     document.getElementById("sun").classList.add("display-none");
+    localStorage.setItem("todosDarkTheme", "False");
   }
 };
 // todo app logic
