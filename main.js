@@ -36,9 +36,11 @@ function addTodo(todoInput, isLineThrough) {
 document.getElementById("add-todo").onsubmit = (e) => {
   e.preventDefault();
   let input = e.target.input_todo.value;
-  addTodo(input);
-  document.getElementById("add-todo").reset();
-  saveTodos();
+  if (!input == "") {
+    addTodo(input);
+    document.getElementById("add-todo").reset();
+    saveTodos();
+  }
 };
 function removeTodo(todo) {
   todo.parentNode.parentNode.remove();
