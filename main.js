@@ -1,3 +1,20 @@
+// toggle dark mode on and off
+const body = document.body;
+document.getElementById("toggle-color-theme").onclick = () => {
+  let bodyClass = body.classList;
+  if (bodyClass.contains("light-theme")) {
+    bodyClass.add("dark-theme");
+    bodyClass.remove("light-theme");
+    document.getElementById("sun").classList.remove("display-none");
+    document.getElementById("moon").classList.add("display-none");
+  } else {
+    bodyClass.add("light-theme");
+    bodyClass.remove("dark-theme");
+    document.getElementById("moon").classList.remove("display-none");
+    document.getElementById("sun").classList.add("display-none");
+  }
+};
+// todo app logic
 let existingTodos = JSON.parse(localStorage.getItem("todos"));
 let todoData = existingTodos || [];
 todoData.forEach((todo) => {
