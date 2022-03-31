@@ -3,16 +3,57 @@
   margin: 0;
   padding: 0;
 }
+.dark-theme {
+  --text_color: #fff;
+  --bg-main: #000;
+  --border-black: #000;
+  --border-light: #777;
+  --bg-button: #000;
+  --border-focus: #fff;
+  --bg-button-hover: #fff;
+  --button-hover-text: #000;
+}
+.light-theme {
+  --text_color: #000;
+  --bg-main: #fff;
+  --border-black: #111;
+  --border-light: #999;
+  --bg-button: #e8e8e8;
+  --border-focus: #41bbd9;
+  --bg-button-hover: #c0c0c0;
+  --button-hover-text: #000;
+}
 body {
   font-family: Arial, Helvetica, sans-serif;
+  color: var(--text_color);
+  background-color: var(--bg-main);
 }
 main {
   width: 100vw;
   height: 100vh;
 }
+button,
+input {
+  border: 2px solid var(--border-light);
+  outline: none;
+  border-radius: 5px;
+  background: var(--bg-main);
+  color: var(--text_color);
+}
+button:focus,
+input:focus {
+  border-color: var(--border-focus);
+}
+button {
+  background-color: var(--bg-button);
+}
+button:hover {
+  background-color: var(--bg-button-hover);
+  color: var(--button-hover-text);
+}
 .todo-item {
   padding: 10px;
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid var(--border-light);
   max-width: 400px;
   display: grid;
   justify-content: space-between;
@@ -45,11 +86,11 @@ main {
 .todos .add-todo {
   max-width: 400px;
   display: grid;
-  grid-template-columns: 1fr min-content;
+  grid-template-columns: 1fr min-content min-content;
   padding: 10px;
   gap: 10px;
   align-items: center;
-  border-bottom: 3px solid #111;
+  border-bottom: 3px solid var(--border-black);
   margin-bottom: 10px;
 }
 .todos .add-todo input {

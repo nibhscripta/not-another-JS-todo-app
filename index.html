@@ -7,16 +7,42 @@
     <title>todo</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="light-theme">
     <div class="todos">
       <form id="add-todo" class="add-todo">
-        <input type="text" id="input_todo" />
+        <input type="text" id="input_todo" placeholder="Write a todo" />
         <button type="submit">
           <img src="./icons/add.svg" alt="add" class="icon" />
+          <button id="toggle-color-theme">
+            <img
+              src="./icons/sun.svg"
+              alt="add"
+              class="icon display-none"
+              id="sun"
+            />
+            <img src="./icons/moon.svg" alt="add" class="icon" id="moon" />
+          </button>
         </button>
       </form>
       <div id="todos-list"></div>
     </div>
   </body>
   <script src="main.js"></script>
+  <script type="text/javascript">
+    const body = document.body;
+    document.getElementById("toggle-color-theme").onclick = () => {
+      let bodyClass = body.classList;
+      if (bodyClass.contains("light-theme")) {
+        bodyClass.add("dark-theme");
+        bodyClass.remove("light-theme");
+        document.getElementById("sun").classList.remove("display-none");
+        document.getElementById("moon").classList.add("display-none");
+      } else {
+        bodyClass.add("light-theme");
+        bodyClass.remove("dark-theme");
+        document.getElementById("moon").classList.remove("display-none");
+        document.getElementById("sun").classList.add("display-none");
+      }
+    };
+  </script>
 </html>
