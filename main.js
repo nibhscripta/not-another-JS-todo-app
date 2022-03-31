@@ -21,9 +21,14 @@ function addTodo(todoInput, isLineThrough) {
     `
         <div id="todo-item" class="todo-item">
           ${todoItem.outerHTML}
+          <div class="todo-buttons">
+            <button id="todo-item-edit" onclick="editTodo(this)">
+            <img src="./icons/edit.svg" alt="edit" class="icon" />
+          </button>
           <button id="todo-item-remove" onclick="removeTodo(this)">
             <img src="./icons/trash.svg" alt="remove" class="icon" />
           </button>
+          </div>
         </div>
       `
   );
@@ -36,7 +41,7 @@ document.getElementById("add-todo").onsubmit = (e) => {
   saveTodos();
 };
 function removeTodo(todo) {
-  todo.parentNode.remove();
+  todo.parentNode.parentNode.remove();
   saveTodos();
 }
 function lineThrough(p) {
@@ -61,4 +66,37 @@ function saveTodos() {
     todoData.push(todoEntry);
   });
   localStorage.setItem("todos", JSON.stringify(todoData));
+}
+function editTodo(todo) {
+  let todoItem = todo.parentNode.parentNode;
+  let todoP = todoItem.children[0];
+  let todoText = todoP.innerText;
+  todoP.classList.add("display-none");
+  todoItem.insertAdjacentHTML(
+    "afterbegin",
+    `
+    <form id="edit-todo" class="edit-todo">
+      <input type="text" id="edit_todo_input" value="${todoText}" />
+      <button type="submit">Save</button>
+    </form>
+    `
+  );
+  let editTodo = document.getElementById("edit-todo");
+  let editInput = document.getElementById("edit_todo_input");
+  let end = editInput.value.length;
+  editInput.setSelectionRange(end, end);
+  editInput.focus();
+  editInput.addEventListener("blur", () => {
+    todoP.classList.remove("display-none");
+    editTodo.remove();
+    console.log("out");
+  });
+  editTodo.onsubmit = (e) => {
+    e.preventDefault();
+    let input = e.target.edit_todo_input.value;
+    todoP.innerText = input;
+    todoP.classList.remove("display-none");
+    editTodo.remove();
+    saveTodos();
+  };
 }

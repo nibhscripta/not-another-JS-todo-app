@@ -20,6 +20,11 @@ main {
   grid-template-columns: minmax(100px, max-content) min-content;
   align-items: center;
 }
+.todo-buttons {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 5px;
+}
 .todo-item button {
   height: min-content;
   cursor: pointer;
@@ -37,7 +42,7 @@ main {
 .todo-text:hover {
   text-decoration: line-through;
 }
-.todos form {
+.todos .add-todo {
   max-width: 400px;
   display: grid;
   grid-template-columns: 1fr min-content;
@@ -47,11 +52,11 @@ main {
   border-bottom: 3px solid #111;
   margin-bottom: 10px;
 }
-.todos form input {
+.todos .add-todo input {
   padding: 5px;
   font-size: 20px;
 }
-.todos form button {
+.todos .add-todo button {
   padding: 5px;
   cursor: pointer;
   display: grid;
@@ -59,5 +64,19 @@ main {
 }
 .icon {
   width: 20px;
-  height: auto;
+  height: 20px;
+}
+.edit-todo {
+  display: grid;
+  grid-template-columns: 100% min-content;
+  gap: 10px;
+  align-items: center;
+  width: max-content;
+}
+.edit-todo input {
+  padding: 5px;
+  font-size: 16px;
+}
+.display-none {
+  display: none;
 }
