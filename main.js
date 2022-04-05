@@ -122,8 +122,10 @@ function editTodo(todo) {
   editInput.setSelectionRange(end, end);
   editInput.focus();
   editInput.addEventListener("blur", () => {
+    todoP.innerText = editInput.value;
     todoP.classList.remove("display-none");
     editTodo.remove();
+    saveTodos();
   });
   editTodo.onsubmit = (e) => {
     e.preventDefault();
