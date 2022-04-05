@@ -124,7 +124,6 @@ function editTodo(todo) {
   editInput.addEventListener("blur", () => {
     todoP.classList.remove("display-none");
     editTodo.remove();
-    console.log("out");
   });
   editTodo.onsubmit = (e) => {
     e.preventDefault();
