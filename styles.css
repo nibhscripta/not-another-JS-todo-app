@@ -6,22 +6,12 @@
 .dark-theme {
   --text_color: #fff;
   --bg-main: #000;
-  --border-black: #000;
   --border-light: #777;
-  --bg-button: #000;
-  --border-focus: #fff;
-  --bg-button-hover: #fff;
-  --button-hover-text: #000;
 }
 .light-theme {
   --text_color: #000;
   --bg-main: #fff;
-  --border-black: #111;
-  --border-light: #999;
-  --bg-button: #e8e8e8;
-  --border-focus: #41bbd9;
-  --bg-button-hover: #c0c0c0;
-  --button-hover-text: #000;
+  --border-light: #e8e8e8;
 }
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -32,28 +22,30 @@ main {
   width: 100vw;
   height: 100vh;
 }
-button,
-input {
-  border: 2px solid var(--border-light);
+button {
+  border: none;
   outline: none;
+  background-color: var(--bg-main);
   border-radius: 5px;
-  background: var(--bg-main);
   color: var(--text_color);
 }
-button:focus,
+button:hover,
+button:focus {
+  background-color: var(--text_color);
+  color: var(--bg-main);
+}
+input {
+  background-color: transparent;
+  color: var(--text_color);
+  outline: none;
+  border: none;
+  border-bottom: 2px solid var(--border-light);
+}
 input:focus {
-  border-color: var(--border-focus);
-}
-button {
-  background-color: var(--bg-button);
-}
-button:hover {
-  background-color: var(--bg-button-hover);
-  color: var(--button-hover-text);
+  border-bottom: 2px solid var(--text_color);
 }
 .todo-item {
   padding: 10px;
-  border-bottom: 1px solid var(--border-light);
   max-width: 400px;
   display: grid;
   justify-content: space-between;
@@ -69,7 +61,7 @@ button:hover {
 .todo-item button {
   height: min-content;
   cursor: pointer;
-  padding: 2px;
+  padding: 3px;
   display: grid;
   place-items: center;
 }
@@ -90,7 +82,6 @@ button:hover {
   padding: 10px;
   gap: 10px;
   align-items: center;
-  border-bottom: 3px solid var(--border-black);
   margin-bottom: 10px;
 }
 .todos .add-todo input {
