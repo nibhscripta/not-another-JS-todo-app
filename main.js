@@ -15,6 +15,7 @@ if (todosDarkTheme == "True") {
   document.getElementById("sun").classList.add("display-none");
 }
 document.getElementById("toggle-color-theme").onclick = () => {
+  document.getElementById("toggle-color-theme").blur();
   let bodyClass = body.classList;
   if (bodyClass.contains("light-theme")) {
     bodyClass.add("dark-theme");
@@ -146,3 +147,7 @@ function editTodo(todo) {
     saveTodos();
   };
 }
+// add todo button hotfix
+document.getElementById("add-todo-button").onclick = () => {
+  document.getElementById("add-todo-button").blur();
+};
